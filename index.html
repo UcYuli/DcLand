@@ -45,7 +45,7 @@
             </div>
 
             <a href="https://dcland.moi.gov.tw/Home/Login" target="_blank" class="hidden md:block bg-orange-600 text-white px-5 py-2 rounded-full font-bold hover:shadow-lg transition-all hover:bg-orange-700">
-                前往地政數位櫃台
+                登入系統
             </a>
         </div>
     </nav>
@@ -122,11 +122,17 @@
                 </div>
             </div>
 
-            <!-- 非全程申請 (橘色調) -->
+            <!-- 非全程申請 (橘色調 - SVG 已更換) -->
             <div class="border p-8 rounded-[3rem] shadow-sm bg-white hover:shadow-xl transition-all flex flex-col relative overflow-hidden group">
                 <div class="absolute top-6 right-8 bg-orange-50 text-orange-600 px-4 py-1.5 rounded-full text-sm font-bold border border-orange-100">高效預約項目</div>
                 <div class="w-16 h-16 rounded-3xl bg-orange-50 text-orange-700 border border-orange-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="10" x="2" y="6" rx="2"/><path d="M7 16V4h5l2 3h5v9"/><path d="m18 19 2 2"/><path d="m20 19-2 2"/></svg>
+                    <!-- 更換後的優化圖示：結合文件與時間，象徵預審與效率 -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <circle cx="12" cy="14" r="3"/>
+                        <path d="M12 12v2h2"/>
+                    </svg>
                 </div>
                 <h3 class="text-3xl font-bold mb-2 text-slate-800">非全程申請</h3>
                 <p class="text-orange-600 font-bold mb-6 text-lg">線上先行核對，現場核對即辦</p>
@@ -210,7 +216,6 @@
             <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-12 text-center">常見問題</h2>
 
             <div class="space-y-4">
-                <!-- QA 1-8 -->
                 <div class="faq-item bg-white rounded-2xl shadow-sm border border-emerald-100 overflow-hidden">
                     <button class="faq-btn w-full px-8 py-6 text-left flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
                         <span class="text-xl font-bold text-slate-700">如何使用行動自然人憑證登入？</span>
@@ -220,6 +225,7 @@
                         <div class="px-8 pb-8 pt-2 text-lg text-slate-600 leading-relaxed">您只需在手機下載「行動自然人憑證」App 並完成註冊，登入數位櫃臺時選擇行動身分識別，再以手機掃描 QR Code 進行生物辨識（指紋或人臉）即可完成驗證，無須讀卡機。</div>
                     </div>
                 </div>
+                <!-- ...其餘 QA 項目相同... -->
                 <div class="faq-item bg-white rounded-2xl shadow-sm border border-emerald-100 overflow-hidden">
                     <button class="faq-btn w-full px-8 py-6 text-left flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
                         <span class="text-xl font-bold text-slate-700">非全程申請一定要去地政事務所嗎？</span>
@@ -229,6 +235,7 @@
                         <div class="px-8 pb-8 pt-2 text-lg text-slate-600">是的。因為買賣或繼承涉及重大財產權移轉，法律規定必須由承辦人員當面核對身分與權狀正本。但線上先行申請與預審，能確保資料正確，將現場流程縮短。</div>
                     </div>
                 </div>
+                <!-- ...其餘 QA 略，保持與前版一致... -->
                 <div class="faq-item bg-white rounded-2xl shadow-sm border border-emerald-100 overflow-hidden">
                     <button class="faq-btn w-full px-8 py-6 text-left flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
                         <span class="text-xl font-bold text-slate-700">數位櫃臺有時間限制嗎？</span>
@@ -297,8 +304,8 @@
                 </div>
                 <h3 class="text-2xl font-bold mb-2">系統面諮詢</h3>
                 <p class="text-emerald-100 mb-6 font-medium">關於登入操作、網路報件系統問題</p>
-                <div class="text-3xl font-black mb-2">07-228-0789</div>
-                <p class="text-sm opacity-80">( 服務時間：週一至週五 08:30~18:00 )</p>
+                <div class="text-3xl font-black mb-2">0800-080-512</div>
+                <p class="text-sm opacity-80">( 服務時間：週一至週五 08:30~17:30 )</p>
             </div>
 
             <!-- 法規面服務電話 (藍色) -->
@@ -310,18 +317,17 @@
                 <p class="text-sky-100 mb-6 font-medium">關於登記流程、案件補正、法律效力</p>
                 <div class="text-3xl font-black mb-2">03-888-3171</div>
                 <p class="text-sm opacity-80">( 花蓮縣玉里地政事務所 服務電話 )</p>
-                <p class="text-sm opacity-80">( 服務時間：週一至週五 08:00~17:30 )</p>
             </div>
         </div>
     </section>
 
     <!-- 頁尾 -->
     <footer class="bg-slate-900 text-slate-500 py-16 px-4 text-center">
-        <h3 class="text-2xl font-bold mb-2">花蓮縣玉里地政事務所 製作宣導</h3>
-        <!--<div class="flex flex-wrap justify-center gap-6 text-sm font-medium">
+        <p class="mb-4 font-bold text-slate-400 italic">花蓮縣玉里地政事務所 製作宣導</p>
+        <div class="flex flex-wrap justify-center gap-6 text-sm font-medium">
             <span>官方網站：dcland.moi.gov.tw</span>
             <span>系統服務專線：0800-080-512</span>
-        </div>-->
+        </div>
     </footer>
 
     <script>
