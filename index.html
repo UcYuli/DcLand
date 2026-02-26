@@ -1,0 +1,301 @@
+import React, { useState } from 'react';
+import { 
+  Home, 
+  MousePointer2, 
+  MapPin, 
+  Clock, 
+  FileText, 
+  CheckCircle2, 
+  Search, 
+  PhoneCall, 
+  HelpCircle,
+  Menu,
+  X,
+  ChevronRight,
+  ArrowRightLeft,
+  Coffee,
+  Car,
+  ClipboardCheck,
+  ShieldCheck,
+  ChevronDown
+} from 'lucide-react';
+
+const App = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeQA, setActiveQA] = useState(null);
+
+  const services = [
+    {
+      title: "全程網路申請",
+      subtitle: "全程在家辦，省時又省力",
+      description: "適合不涉及財產權利變動的簡易登記項目，完全不需要親自前往地政事務所。",
+      details: [
+        { name: "住址變更登記", info: "搬家後身分證地址換了，線上就能同步更新。" },
+        { name: "姓名變更登記", info: "改名字後，名下房產所有權人資訊可直接修正。" },
+        { name: "更正登記", info: "限於原登記錯誤或遺漏，且不涉及權利變動者。" },
+        { name: "建物基地號他項權利變更", info: "僅變更基地標示，不影響抵押權實質內容。" }
+      ],
+      color: "bg-emerald-50 text-emerald-700 border-emerald-200",
+      btnColor: "bg-emerald-600 hover:bg-emerald-700",
+      badge: "最推薦",
+      icon: <Coffee size={32} />
+    },
+    {
+      title: "非全程申請",
+      subtitle: "預約式服務，重大業務更快速",
+      description: "適合涉及不動產移轉或設定的重要項目。線上先核對身分與填表，現場僅需交件。",
+      details: [
+        { name: "買賣/贈與登記", info: "房屋買賣或贈送給子女，線上預填資料減少現場排隊。" },
+        { name: "抵押權設定/塗銷", info: "向銀行貸款或清償後的權利變動，預約辦理更準確。" },
+        { name: "繼承/拍賣登記", info: "文件較複雜的業務，透過網路預審可避免補件往返。" },
+        { name: "書狀換給登記", info: "權狀損壞或老舊想換新，線上先申請，現場直接領。" }
+      ],
+      color: "bg-sky-50 text-sky-700 border-sky-200",
+      btnColor: "bg-sky-600 hover:bg-sky-700",
+      badge: "高效率",
+      icon: <Car size={32} />
+    }
+  ];
+
+  const faqItems = [
+    {
+      q: "使用「數位櫃臺」申請安全嗎？會不會資料外洩？",
+      a: "非常安全！數位櫃臺使用與銀行同等級的加密技術，且必須搭配「自然人憑證」或「行動自然人憑證」進行身分驗證，這就像您的數位印鑑證明，非本人無法登入辦理。系統由內政部維護，防護層級極高。"
+    },
+    {
+      q: "如果不熟悉電腦操作，有其他的輔助方式嗎？",
+      a: "有的！您可以先嘗試使用「行動自然人憑證(TW FidO)」，這可以用手機生物辨識（如指紋、臉部）登入，不必插卡。另外，我們也提供「線上預填、現場臨櫃」的非全程服務，您可以請家中年輕人先幫您在網路上填好資料，您到場只需核對簽名即可。"
+    },
+    {
+      q: "全程申請一定要用到讀卡機嗎？",
+      a: "是的，如果您使用的是「實體自然人憑證」IC卡，必須連接讀卡機。若您沒有讀卡機，建議您可以到戶政事務所開通「行動自然人憑證」，之後只需透過手機掃描 QR Code 即可完成簽署，不需插卡。"
+    },
+    {
+      q: "如果土地權狀不見了，可以在數位櫃臺辦理嗎？",
+      a: "若權狀遺失，您仍可以透過數位櫃臺進行「非全程」的線上預填申辦。但在後續臨櫃核對時，仍需依規定辦理權狀補發手續。數位櫃臺能加速填表流程，但正本審核仍需依照法定程序處理。"
+    },
+    {
+      q: "數位櫃臺辦理需要規費嗎？如何繳費？",
+      a: "規費與臨櫃辦理完全相同。線上申請完成後，您可以透過網路信用卡、ATM轉帳、或是在超商進行繳費，非常方便。"
+    },
+    {
+      q: "申請後可以隨時查詢進度嗎？",
+      a: "可以的！登入系統後，點選「進度查詢」專區，就可以看到案件目前是在審核中、補件中還是已完結，系統也會同步發送電子郵件或簡訊通知您。"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-800">
+      {/* 導航欄 */}
+      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="bg-emerald-600 p-1.5 rounded-lg">
+              <Home className="text-white w-6 h-6" />
+            </div>
+            <span className="text-xl font-bold tracking-tight text-emerald-800 italic">數位櫃臺 <span className="text-sm font-medium opacity-70">| 壯世代專區</span></span>
+          </div>
+          
+          <div className="hidden md:flex gap-8 font-medium">
+            <a href="#services" className="hover:text-emerald-600 transition">服務清單</a>
+            <a href="#comparison" className="hover:text-emerald-600 transition">差異比較</a>
+            <a href="#qa" className="hover:text-emerald-600 transition">常見問題</a>
+          </div>
+
+          <button className="hidden md:block bg-emerald-600 text-white px-5 py-2 rounded-full font-bold hover:shadow-lg transition">
+            立即體驗
+          </button>
+
+          <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
+      </nav>
+
+      {/* Hero 區塊 */}
+      <header className="bg-gradient-to-br from-emerald-50 via-white to-sky-50 pt-16 pb-24 px-4 overflow-hidden text-center">
+        <div className="max-w-4xl mx-auto relative">
+          <div className="inline-block px-4 py-1.5 mb-6 bg-emerald-100 text-emerald-700 rounded-full text-sm font-bold animate-pulse">
+            地政服務新主張：簡單、安全、不必等 ✨
+          </div>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
+            不論<span className="text-emerald-600">更名變更</span>或<span className="text-sky-600">過戶買賣</span><br/>數位櫃臺都能幫您省事
+          </h1>
+          <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto font-medium">
+            告別冗長的櫃臺等待時間。<br/>
+            專為您設計的大字體介面，不管是電腦或平板，三分鐘就能看懂流程。
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="px-10 py-5 bg-emerald-600 text-white rounded-2xl text-xl font-bold hover:scale-105 transition shadow-xl flex items-center justify-center gap-2">
+              <MousePointer2 /> 進入申辦系統
+            </button>
+            <button className="px-10 py-5 bg-white border-2 border-slate-200 text-slate-700 rounded-2xl text-xl font-bold hover:bg-slate-50 transition">
+              觀看操作教學
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* 服務細節說明 */}
+      <section id="services" className="max-w-6xl mx-auto px-4 -mt-12 mb-20">
+        <div className="grid md:grid-cols-2 gap-10">
+          {services.map((s, idx) => (
+            <div key={idx} className="group border p-10 rounded-[3rem] shadow-sm bg-white hover:shadow-2xl transition-all flex flex-col relative overflow-hidden">
+              <div className="absolute top-6 right-8 bg-slate-100 text-slate-600 px-4 py-1.5 rounded-full text-sm font-bold">
+                {s.badge}
+              </div>
+              <div className={`w-16 h-16 rounded-3xl ${s.color} flex items-center justify-center mb-6 shadow-sm`}>
+                {s.icon}
+              </div>
+              <h3 className="text-3xl font-bold mb-2">{s.title}</h3>
+              <p className="text-emerald-600 font-bold mb-6 text-lg">{s.subtitle}</p>
+              <p className="text-slate-500 mb-8 leading-relaxed text-lg">{s.description}</p>
+              
+              <div className="space-y-6">
+                <div className="flex items-center gap-2 font-bold text-slate-400 text-sm uppercase tracking-widest mb-4">
+                  <ClipboardCheck size={18} /> 詳細服務項目
+                </div>
+                {s.details.map((detail, i) => (
+                  <div key={i} className="bg-slate-50 p-4 rounded-2xl border border-slate-100 group-hover:bg-white group-hover:border-emerald-200 transition-colors">
+                    <h4 className="font-bold text-lg text-slate-800 mb-1">{detail.name}</h4>
+                    <p className="text-slate-500 text-sm">{detail.info}</p>
+                  </div>
+                ))}
+              </div>
+              <button className={`mt-10 w-full py-5 text-white rounded-2xl text-xl font-bold ${s.btnColor} transition shadow-md`}>
+                開始辦理
+              </button>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 流程對比區 */}
+      <section id="comparison" className="py-24 px-4 bg-white border-y border-slate-100">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">我應該選擇哪一種方式？</h2>
+            <p className="text-slate-500 text-lg">根據您的需求與業務類型，選擇最省力的一種。</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-10 bg-emerald-600 rounded-[3rem] text-white shadow-xl relative">
+              <div className="mb-6 flex justify-between items-start">
+                <h3 className="text-3xl font-bold italic underline decoration-emerald-400">全程網辦</h3>
+                <ShieldCheck size={40} className="text-emerald-300" />
+              </div>
+              <ul className="space-y-6 text-lg">
+                <li className="flex gap-3">
+                  <div className="bg-white/20 w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold">✓</div>
+                  <span>不需要出門，只要有讀卡機。</span>
+                </li>
+                <li className="flex gap-3">
+                  <div className="bg-white/20 w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold">✓</div>
+                  <span>透過自然人憑證進行數位簽章。</span>
+                </li>
+                <li className="flex gap-3">
+                  <div className="bg-white/20 w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold">✓</div>
+                  <span>適合資訊正確、不需額外證明的案件。</span>
+                </li>
+              </ul>
+              <div className="mt-8 bg-white/10 p-4 rounded-2xl border border-white/20 text-sm italic text-emerald-100">
+                提示：這就像在網路銀行匯款，幾分鐘內就能送出申請。
+              </div>
+            </div>
+
+            <div className="p-10 bg-sky-600 rounded-[3rem] text-white shadow-xl relative">
+              <div className="mb-6 flex justify-between items-start">
+                <h3 className="text-3xl font-bold italic underline decoration-sky-400">非全程申辦</h3>
+                <ShieldCheck size={40} className="text-sky-300" />
+              </div>
+              <ul className="space-y-6 text-lg">
+                <li className="flex gap-3">
+                  <div className="bg-white/20 w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold">✓</div>
+                  <span>線上先預審，現場「核對即領」。</span>
+                </li>
+                <li className="flex gap-3">
+                  <div className="bg-white/20 w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold">✓</div>
+                  <span>適合需繳回舊權狀或審核複雜文件。</span>
+                </li>
+                <li className="flex gap-3">
+                  <div className="bg-white/20 w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold">✓</div>
+                  <span>大幅減少在地政事務所排隊與等候的時間。</span>
+                </li>
+              </ul>
+              <div className="mt-8 bg-white/10 p-4 rounded-2xl border border-white/20 text-sm italic text-sky-100">
+                提示：這就像診所掛號先預約，到現場直接進入重點。
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 常見問題區 (QA) */}
+      <section id="qa" className="py-24 bg-slate-50 px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <HelpCircle className="w-16 h-16 text-emerald-600 mx-auto mb-6" />
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">常見申請大哉問</h2>
+            <p className="text-slate-500 text-lg">我們整理了長輩們最常詢問的問題，為您解惑。</p>
+          </div>
+
+          <div className="space-y-4">
+            {faqItems.map((item, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                <button 
+                  onClick={() => setActiveQA(activeQA === index ? null : index)}
+                  className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-slate-50 transition-colors"
+                >
+                  <span className="text-xl font-bold text-slate-700 pr-4 leading-tight">{item.q}</span>
+                  <div className={`shrink-0 transition-transform duration-300 ${activeQA === index ? 'rotate-180' : ''}`}>
+                    <ChevronDown size={28} className="text-emerald-600" />
+                  </div>
+                </button>
+                <div className={`transition-all duration-300 ease-in-out ${activeQA === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
+                  <div className="px-8 pb-8 pt-2 text-lg text-slate-600 leading-relaxed border-t border-slate-50">
+                    <div className="bg-emerald-50/50 p-6 rounded-xl border-l-4 border-emerald-500">
+                      {item.a}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 p-10 bg-gradient-to-br from-emerald-600 to-sky-700 rounded-[3rem] text-white flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+            <div className="text-center md:text-left">
+              <h3 className="text-3xl font-bold mb-3">依然有疑問嗎？</h3>
+              <p className="text-emerald-100 text-lg">沒關係，我們有親切的專人帶您一步步操作。</p>
+            </div>
+            <div className="bg-white p-6 rounded-[2rem] flex items-center gap-5 shadow-xl">
+              <div className="bg-emerald-100 p-4 rounded-2xl text-emerald-600">
+                <PhoneCall size={32} />
+              </div>
+              <div className="text-left">
+                <div className="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-1">在地客服諮詢專線</div>
+                <div className="text-3xl font-black text-slate-800">0800-000-000</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 底部 */}
+      <footer className="bg-slate-900 text-slate-500 py-16 px-4">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="mb-6 font-bold text-slate-400 text-lg">內政部地政司 數位櫃臺 版權所有</p>
+          <div className="flex flex-wrap justify-center gap-8 text-md">
+            <a href="#" className="hover:text-white transition underline underline-offset-4">隱私權政策</a>
+            <a href="#" className="hover:text-white transition underline underline-offset-4">資訊安全政策</a>
+            <a href="#" className="hover:text-white transition underline underline-offset-4">網站無障礙說明</a>
+          </div>
+          <div className="mt-10 opacity-30 grayscale invert flex justify-center">
+            <Home className="w-10 h-10 text-white" />
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
