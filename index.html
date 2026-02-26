@@ -161,34 +161,90 @@
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">常見申請大哉問</h2>
-                <p class="text-slate-500 text-lg">整理了長輩們最常詢問的問題，為您解惑。</p>
+                <p class="text-slate-500 text-lg">整理了長輩與民眾最常詢問的問題，為您解惑。</p>
             </div>
 
             <div class="space-y-4" id="faq-container">
                 <!-- QA 1 -->
                 <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                    <button class="faq-btn w-full px-8 py-6 text-left flex items-center justify-between hover:bg-slate-50 transition-colors">
+                    <button class="faq-btn w-full px-8 py-6 text-left flex items-center justify-between hover:bg-slate-50 transition-colors focus:outline-none">
                         <span class="text-xl font-bold text-slate-700">使用「數位櫃臺」申請安全嗎？會不會資料外洩？</span>
                         <svg class="chevron-icon shrink-0 transition-transform duration-300 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                     </button>
                     <div class="faq-answer border-t border-slate-50">
                         <div class="px-8 pb-8 pt-6 text-lg text-slate-600 leading-relaxed">
-                            <div class="bg-emerald-50/50 p-6 rounded-xl border-l-4 border-emerald-500">
-                                非常安全！數位櫃臺使用與銀行同等級的加密技術，且必須搭配「自然人憑證」進行身分驗證。系統由內政部維護，防護層級極高。
+                            <div class="bg-emerald-50/50 p-6 rounded-xl border-l-4 border-emerald-500 font-medium">
+                                非常安全！數位櫃臺使用與銀行同等級的加密技術，且必須搭配「自然人憑證」或「行動自然人憑證」進行身分驗證。這就像您的數位印鑑，非本人無法登入。系統由內政部維護，防護層級極高。
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- QA 2 -->
                 <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                    <button class="faq-btn w-full px-8 py-6 text-left flex items-center justify-between hover:bg-slate-50 transition-colors">
+                    <button class="faq-btn w-full px-8 py-6 text-left flex items-center justify-between hover:bg-slate-50 transition-colors focus:outline-none">
                         <span class="text-xl font-bold text-slate-700">如果不熟悉電腦操作，有其他的輔助方式嗎？</span>
                         <svg class="chevron-icon shrink-0 transition-transform duration-300 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                     </button>
                     <div class="faq-answer border-t border-slate-50">
                         <div class="px-8 pb-8 pt-6 text-lg text-slate-600 leading-relaxed">
-                            <div class="bg-emerald-50/50 p-6 rounded-xl border-l-4 border-emerald-500">
-                                有的！您可以先嘗試使用「行動自然人憑證(TW FidO)」，這可以用手機辨識（如指紋、臉部）登入。或是請家人幫您線上填好，您到場簽名即可。
+                            <div class="bg-emerald-50/50 p-6 rounded-xl border-l-4 border-emerald-500 font-medium">
+                                有的！您可以先嘗試使用「行動自然人憑證(TW FidO)」，這可以用手機辨識（如指紋、臉部）登入。或是您可以在網路上先「預填」資料，再請家人陪同或由專業人士帶領，到場核對即可。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- QA 3 (New) -->
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <button class="faq-btn w-full px-8 py-6 text-left flex items-center justify-between hover:bg-slate-50 transition-colors focus:outline-none">
+                        <span class="text-xl font-bold text-slate-700">我一定要買讀卡機才能辦理嗎？</span>
+                        <svg class="chevron-icon shrink-0 transition-transform duration-300 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer border-t border-slate-50">
+                        <div class="px-8 pb-8 pt-6 text-lg text-slate-600 leading-relaxed">
+                            <div class="bg-emerald-50/50 p-6 rounded-xl border-l-4 border-emerald-500 font-medium">
+                                不一定！若您有開通「行動自然人憑證」，只需要手機掃碼即可登入，不需要讀卡機。但若您使用的是傳統實體自然人憑證卡片，則仍需搭配讀卡機連接電腦。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- QA 4 (New) -->
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <button class="faq-btn w-full px-8 py-6 text-left flex items-center justify-between hover:bg-slate-50 transition-colors focus:outline-none">
+                        <span class="text-xl font-bold text-slate-700">辦完之後會有紙本權狀嗎？什麼是數位櫃臺電子權狀？</span>
+                        <svg class="chevron-icon shrink-0 transition-transform duration-300 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer border-t border-slate-50">
+                        <div class="px-8 pb-8 pt-6 text-lg text-slate-600 leading-relaxed">
+                            <div class="bg-emerald-50/50 p-6 rounded-xl border-l-4 border-emerald-500 font-medium">
+                                現行制度辦理完竣後仍會核發「紙本權狀」。而數位櫃臺提供的「電子產權憑證」是輔助性質的數位證明，方便您透過手機隨時查閱、向銀行或他人展示產權，不需要隨身攜帶珍貴的紙本正本。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- QA 5 (New) -->
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <button class="faq-btn w-full px-8 py-6 text-left flex items-center justify-between hover:bg-slate-50 transition-colors focus:outline-none">
+                        <span class="text-xl font-bold text-slate-700">如何繳納地政規費？線上辦比較便宜嗎？</span>
+                        <svg class="chevron-icon shrink-0 transition-transform duration-300 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer border-t border-slate-50">
+                        <div class="px-8 pb-8 pt-6 text-lg text-slate-600 leading-relaxed">
+                            <div class="bg-emerald-50/50 p-6 rounded-xl border-l-4 border-emerald-500 font-medium">
+                                線上申請與臨櫃申辦的「規費標準是一樣的」。您可以直接在網路上使用信用卡、ATM 轉帳或是列印繳款單到超商繳費。最大的價值在於節省了往返交通與現場等待的時間成本！
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- QA 6 (New) -->
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                    <button class="faq-btn w-full px-8 py-6 text-left flex items-center justify-between hover:bg-slate-50 transition-colors focus:outline-none">
+                        <span class="text-xl font-bold text-slate-700">申請後如果漏了文件怎麼辦？可以查詢進度嗎？</span>
+                        <svg class="chevron-icon shrink-0 transition-transform duration-300 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer border-t border-slate-50">
+                        <div class="px-8 pb-8 pt-6 text-lg text-slate-600 leading-relaxed">
+                            <div class="bg-emerald-50/50 p-6 rounded-xl border-l-4 border-emerald-500 font-medium">
+                                系統具備「補件功能」，若承辦人員發現資料不全，會通知您補傳電子檔。您隨時可以登入數位櫃臺「進度查詢」專區，掌握案件目前的審核狀態，不用再打電話詢問。
                             </div>
                         </div>
                     </div>
@@ -198,7 +254,7 @@
             <div class="mt-16 p-10 bg-gradient-to-br from-emerald-600 to-sky-700 rounded-[3rem] text-white flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
                 <div>
                     <h3 class="text-3xl font-bold mb-3 text-center md:text-left">依然有疑問嗎？</h3>
-                    <p class="text-emerald-100 text-lg text-center md:text-left">我們有親切的專人帶您一步步操作。</p>
+                    <p class="text-emerald-100 text-lg text-center md:text-left">沒關係，我們有親切的專人帶您一步步操作。</p>
                 </div>
                 <div class="bg-white p-6 rounded-[2rem] flex items-center gap-5 shadow-xl text-slate-800">
                     <div class="bg-emerald-600 p-4 rounded-2xl text-white">
@@ -219,6 +275,7 @@
         <div class="flex flex-wrap justify-center gap-8">
             <a href="#" class="hover:text-white transition underline underline-offset-4">隱私權政策</a>
             <a href="#" class="hover:text-white transition underline underline-offset-4">資訊安全政策</a>
+            <a href="#" class="hover:text-white transition underline underline-offset-4">聯絡地政事務所</a>
         </div>
     </footer>
 
