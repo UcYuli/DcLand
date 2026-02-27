@@ -11,6 +11,11 @@
             font-family: 'Noto Sans TC', sans-serif;
             scroll-behavior: smooth;
             -webkit-tap-highlight-color: transparent;
+            /* 防止文字被選取 */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         .faq-answer {
             max-height: 0;
@@ -388,6 +393,7 @@
     </footer>
 
     <script>
+        // 常見問題收合邏輯
         document.querySelectorAll('.faq-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.parentElement;
@@ -396,6 +402,14 @@
                 });
                 item.classList.toggle('active');
             });
+        });
+
+        // 防止快捷鍵複製 (Ctrl+C, Ctrl+U 等)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'a' || e.key === 'i')) {
+                e.preventDefault();
+                return false;
+            }
         });
     </script>
 </body>
