@@ -11,6 +11,11 @@
             font-family: 'Noto Sans TC', sans-serif;
             scroll-behavior: smooth;
             -webkit-tap-highlight-color: transparent;
+            /* 防止文字被選取 */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
         .faq-answer {
             max-height: 0;
@@ -30,48 +35,38 @@
         }
     </style>
 </head>
-<body class="min-h-screen bg-slate-50 text-slate-800">
+<body class="min-h-screen bg-slate-50 text-slate-800" oncontextmenu="return false;">
 
     <!-- 導覽欄 -->
-   <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
-    <div class="max-w-6xl mx-auto px-6 h-18 md:h-24 flex items-center">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2 min-w-0">
+                <div class="bg-sky-700 p-1.5 rounded-lg shadow-sm shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <div class="flex flex-col md:flex-row md:items-center truncate">
+                    <img src="https://ws.hl.gov.tw/001/Upload/404/sites/pagebackimage/fff729bd-7167-4ee5-a6b9-98742ea754ce.gif" alt="花蓮縣玉里地政事務所" class="h-8 md:h-10 w-auto object-contain">
+                    <span class="hidden sm:inline text-sm md:text-base font-bold text-sky-900 md:ml-3 tracking-tight truncate">地政數位櫃台宣導網頁</span>
+                </div>
+            </div>
+            
+            <div class="hidden lg:flex gap-8 font-medium text-slate-600">
+                <a href="#services" class="hover:text-emerald-600 transition">服務項目</a>
+                <a href="#comparison" class="hover:text-sky-600 transition">申辦導引</a>
+                <a href="#qa" class="hover:text-orange-600 transition">常見問題</a>
+            </div>
 
-        <!-- 左側：Logo + 標題 -->
-        <div class="flex items-center gap-3 shrink-0">
-            <img src="https://ws.hl.gov.tw/001/Upload/404/sites/pagebackimage/fff729bd-7167-4ee5-a6b9-98742ea754ce.gif"
-                 alt="花蓮縣玉里地政事務所"
-                 class="h-14 md:h-16 w-auto object-contain">
-
-            <span class="hidden sm:inline text-sm md:text-lg font-bold text-sky-900 tracking-tight">
-                地政數位櫃台宣導網頁
-            </span>
-        </div>
-
-        <!-- 中間選單 -->
-        <div class="hidden lg:flex items-center gap-8 font-semibold text-slate-600 ml-20 text-sm md:text-base">
-            <a href="#services" class="hover:text-emerald-600 transition-colors">服務項目</a>
-            <a href="#comparison" class="hover:text-sky-600 transition-colors">申辦導引</a>
-            <a href="#qa" class="hover:text-orange-600 transition-colors">常見問題</a>
-        </div>
-
-        <!-- 右側登入按鈕 -->
-        <div class="ml-auto">
-            <a href="https://dcland.moi.gov.tw/Home/Login"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="bg-orange-600 text-white px-5 md:px-6 py-2 md:py-2.5 rounded-full text-sm md:text-base font-bold hover:shadow-md hover:bg-orange-700 transition-all whitespace-nowrap">
-                登入地政數位櫃台
+            <a href="https://dcland.moi.gov.tw/Home/Login" target="_blank" class="bg-orange-600 text-white px-3 py-1.5 md:px-5 md:py-2 rounded-full text-sm md:text-base font-bold hover:shadow-lg transition-all hover:bg-orange-700 shrink-0">
+                登入系統
             </a>
         </div>
-
-    </div>
-</nav>
+    </nav>
 
     <!-- Hero 區塊 -->
     <header class="bg-gradient-to-br from-sky-50 via-white to-orange-50 pt-12 pb-16 md:pt-16 md:pb-20 px-4 overflow-hidden text-center">
         <div class="max-w-4xl mx-auto relative">
-            <div class="inline-block px-6 py-2 mb-6 bg-emerald-100 text-emerald-700 rounded-full text-sm md:text-base font-bold">
-            地政服務新主張：簡單、安全、不必等
+            <div class="inline-block px-4 py-1.5 mb-6 bg-emerald-100 text-emerald-700 rounded-full text-xs md:text-sm font-bold">
+                地政服務新主張：簡單、安全、不必等
             </div>
             <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
                 <span class="text-sky-700">地政數位櫃台</span> <br class="md:hidden" /> <span class="hidden md:inline"><br/><br/></span> <span class="text-orange-600">網上辦理，省時又省力</span>
@@ -87,40 +82,14 @@
     <section class="max-w-4xl mx-auto px-4 mb-10 md:mb-12">
         <div class="bg-purple-50 border-2 border-purple-200 rounded-2xl md:rounded-[2rem] p-6 md:p-8 flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 shadow-sm">
             <div class="bg-purple-600 p-3 rounded-xl shrink-0 text-white">
-                <svg xmlns="http://www.w3.org/2000/svg"
-     width="28"
-     height="28"
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     stroke-width="2"
-     stroke-linecap="round"
-     stroke-linejoin="round">
-
-    <!-- 外圓 -->
-    <circle cx="12" cy="12" r="10"/>
-
-    <!-- 驚嘆號主體 -->
-    <path d="M12 7v6"/>
-
-    <!-- 底部圓點 -->
-    <circle cx="12" cy="17" r="1"/>
-
-</svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="11" x="4" y="9" rx="2"/><rect width="2" height="5" x="11" y="4"/><path d="M12 9V4"/></svg>
             </div>
             <div class="text-center md:text-left">
-    <h4 class="text-xl md:text-2xl font-bold text-purple-900 mb-3">
-        操作建議提醒
-    </h4>
-
-    <p class="text-base md:text-lg text-purple-800 leading-relaxed font-medium">
-        數位櫃臺系統提供民眾申請項目眾多，雖已提供行動自然人登入，但因每項申請需填寫項目較為複雜，為確保申請人輸入資料之正確性，
-        <span class="font-bold underline">
-            現行建議使用桌上型電腦操作
-        </span>，
-        暫不開放行動裝置直接辦理申請。造成您的不便，敬請見諒。
-    </p>
-</div>
+                <h4 class="text-lg md:text-xl font-bold text-purple-900 mb-2">操作建議提醒</h4>
+                <p class="text-sm md:text-base text-purple-800 leading-relaxed font-medium">
+                    數位櫃臺系統提供民眾申請項目眾多，雖已提供行動自然人登入，但因每項申請需填寫項目較為複雜，為確保申請人輸入資料之正確性，<span class="font-bold underline">現行建議使用桌上型電腦操作</span>，暫不開放行動裝置直接辦理申請。造成您的不便，敬請見諒。
+                </p>
+            </div>
         </div>
     </section>
 
@@ -388,6 +357,7 @@
     </footer>
 
     <script>
+        // 常見問題收合邏輯
         document.querySelectorAll('.faq-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.parentElement;
@@ -396,6 +366,14 @@
                 });
                 item.classList.toggle('active');
             });
+        });
+
+        // 防止快捷鍵複製 (Ctrl+C, Ctrl+U 等)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'a' || e.key === 'i')) {
+                e.preventDefault();
+                return false;
+            }
         });
     </script>
 </body>
