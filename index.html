@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>花蓮縣玉里地政事務所 | 地政數位櫃台宣導網頁</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -33,55 +33,94 @@
         .break-words-custom {
             word-break: break-all;
         }
+        /* 行動版導覽列陰影與模糊 */
+        .mobile-nav {
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+        }
+        /* 避免底部被行動導覽列遮住 */
+        @media (max-width: 1023px) {
+            body {
+                padding-bottom: 70px;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen bg-slate-50 text-slate-800">
 
-    <!-- 導覽欄 -->
-   <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
-    <div class="max-w-6xl mx-auto px-6 h-18 md:h-24 flex items-center">
+    <!-- 電腦版導覽欄 (lg 以上顯示) -->
+    <nav class="hidden lg:block sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-6 h-24 flex items-center">
+            <!-- 左側：Logo + 標題 -->
+            <div class="flex items-center gap-3 shrink-0">
+                <img src="https://ws.hl.gov.tw/001/Upload/404/sites/pagebackimage/fff729bd-7167-4ee5-a6b9-98742ea754ce.gif"
+                     alt="花蓮縣玉里地政事務所"
+                     class="h-16 w-auto object-contain">
+                <span class="text-lg font-bold text-sky-900 tracking-tight">
+                    地政數位櫃台宣導網頁
+                </span>
+            </div>
 
-        <!-- 左側：Logo + 標題 -->
-        <div class="flex items-center gap-3 shrink-0">
+            <!-- 中間選單 -->
+            <div class="flex items-center gap-8 font-semibold text-slate-600 ml-20">
+                <a href="#services" class="hover:text-emerald-600 transition-colors">服務項目</a>
+                <a href="#comparison" class="hover:text-sky-600 transition-colors">申辦導引</a>
+                <a href="#qa" class="hover:text-orange-600 transition-colors">常見問題</a>
+            </div>
+
+            <!-- 右側登入按鈕 -->
+            <div class="ml-auto">
+                <a href="https://dcland.moi.gov.tw/Home/Login"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="bg-orange-600 text-white px-6 py-2.5 rounded-full text-base font-bold hover:shadow-md hover:bg-orange-700 transition-all whitespace-nowrap">
+                    登入地政數位櫃台
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 手機版頂部標誌 (lg 以下顯示) -->
+    <div class="lg:hidden bg-white border-b border-slate-100 px-4 py-3 flex items-center justify-between sticky top-0 z-50">
+        <div class="flex items-center gap-2">
             <img src="https://ws.hl.gov.tw/001/Upload/404/sites/pagebackimage/fff729bd-7167-4ee5-a6b9-98742ea754ce.gif"
-                 alt="花蓮縣玉里地政事務所"
-                 class="h-14 md:h-16 w-auto object-contain">
-
-            <span class="hidden sm:inline text-sm md:text-lg font-bold text-sky-900 tracking-tight">
-                地政數位櫃台宣導網頁
-            </span>
+                 alt="Logo" class="h-10 w-auto">
+            <span class="text-sm font-bold text-sky-900">玉里地政數位櫃台</span>
         </div>
+        <a href="https://dcland.moi.gov.tw/Home/Login" target="_blank" class="bg-orange-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold">登入系統</a>
+    </div>
 
-        <!-- 中間選單 -->
-        <div class="hidden lg:flex items-center gap-8 font-semibold text-slate-600 ml-20 text-sm md:text-base">
-            <a href="#services" class="hover:text-emerald-600 transition-colors">服務項目</a>
-            <a href="#comparison" class="hover:text-sky-600 transition-colors">申辦導引</a>
-            <a href="#qa" class="hover:text-orange-600 transition-colors">常見問題</a>
-        </div>
-
-        <!-- 右側登入按鈕 -->
-        <div class="ml-auto">
-            <a href="https://dcland.moi.gov.tw/Home/Login"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="bg-orange-600 text-white px-5 md:px-6 py-2 md:py-2.5 rounded-full text-sm md:text-base font-bold hover:shadow-md hover:bg-orange-700 transition-all whitespace-nowrap">
-                登入地政數位櫃台
+    <!-- 手機專用底部導覽列 (lg 以下顯示) -->
+    <nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-t border-slate-200 mobile-nav">
+        <div class="flex justify-around items-center h-16 px-2">
+            <a href="#" class="flex flex-col items-center gap-1 text-slate-500 hover:text-sky-600 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span class="text-[10px] font-bold">首頁</span>
+            </a>
+            <a href="#services" class="flex flex-col items-center gap-1 text-slate-500 hover:text-emerald-600 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                <span class="text-[10px] font-bold">服務項目</span>
+            </a>
+            <a href="#comparison" class="flex flex-col items-center gap-1 text-slate-500 hover:text-sky-600 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                <span class="text-[10px] font-bold">申辦導引</span>
+            </a>
+            <a href="#qa" class="flex flex-col items-center gap-1 text-slate-500 hover:text-orange-600 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+                <span class="text-[10px] font-bold">常見問題</span>
             </a>
         </div>
-
-    </div>
-</nav>
+    </nav>
 
     <!-- Hero 區塊 -->
-    <header class="bg-gradient-to-br from-sky-50 via-white to-orange-50 pt-12 pb-16 md:pt-16 md:pb-20 px-4 overflow-hidden text-center">
+    <header class="bg-gradient-to-br from-sky-50 via-white to-orange-50 pt-12 pb-16 md:pt-16 md:pb-24 px-4 overflow-hidden text-center">
         <div class="max-w-4xl mx-auto relative">
-            <div class="inline-block px-6 py-2 mb-6 bg-emerald-100 text-emerald-700 rounded-full text-sm md:text-base font-bold">
-            地政服務新主張：簡單、安全、不必等
+            <div class="inline-block px-4 py-1.5 md:px-6 md:py-2 mb-6 bg-emerald-100 text-emerald-700 rounded-full text-xs md:text-base font-bold">
+                地政服務新主張：簡單、安全、不必等
             </div>
-            <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
+            <h1 class="text-2xl md:text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
                 <span class="text-sky-700">地政數位櫃台</span> <br class="md:hidden" /> <span class="hidden md:inline"><br/><br/></span> <span class="text-orange-600">網上辦理，省時又省力</span>
             </h1>
-            <p class="text-base md:text-xl text-slate-600 mb-6 leading-relaxed max-w-2xl mx-auto font-medium">
+            <p class="text-sm md:text-xl text-slate-600 mb-6 leading-relaxed max-w-2xl mx-auto font-medium px-2">
                 無論是簡易的住址變更，或是產權移轉的買賣登記，<br class="hidden md:block"/>
                 數位櫃臺皆提供標準化流程，讓您在家就能完成大部分申請手續。
             </p>
@@ -89,158 +128,101 @@
     </header>
 
     <!-- 紫色溫馨提示區塊 -->
-    <section class="max-w-4xl mx-auto px-4 mb-10 md:mb-12">
-        <div class="bg-purple-50 border-2 border-purple-200 rounded-2xl md:rounded-[2rem] p-6 md:p-8 flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 shadow-sm">
-            <div class="bg-purple-600 p-3 rounded-xl shrink-0 text-white">
-                <svg xmlns="http://www.w3.org/2000/svg"
-     width="28"
-     height="28"
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     stroke-width="2"
-     stroke-linecap="round"
-     stroke-linejoin="round">
-
-    <!-- 外圓 -->
-    <circle cx="12" cy="12" r="10"/>
-
-    <!-- 驚嘆號主體 -->
-    <path d="M12 7v6"/>
-
-    <!-- 底部圓點 -->
-    <circle cx="12" cy="17" r="1"/>
-
-</svg>
+    <section class="max-w-4xl mx-auto px-4 mb-10 md:mb-16">
+        <div class="bg-purple-50 border border-purple-200 rounded-2xl md:rounded-[2rem] p-5 md:p-8 flex flex-col md:flex-row items-center md:items-start gap-4 md:gap-6 shadow-sm">
+            <div class="bg-purple-600 p-3 rounded-xl shrink-0 text-white shadow-lg shadow-purple-200">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 7v6"/><circle cx="12" cy="17" r="1"/></svg>
             </div>
             <div class="text-center md:text-left">
-    <h4 class="text-xl md:text-2xl font-bold text-purple-900 mb-3">
-        操作建議提醒
-    </h4>
-
-    <p class="text-base md:text-lg text-purple-800 leading-relaxed font-medium">
-        數位櫃臺系統提供民眾申請項目眾多，雖已提供行動自然人登入，但因每項申請需填寫項目較為複雜，為確保申請人輸入資料之正確性，
-        <span class="font-bold underline">
-            現行建議使用桌上型電腦操作
-        </span>，
-        暫不開放行動裝置直接辦理申請。造成您的不便，敬請見諒。
-    </p>
-</div>
+                <h4 class="text-lg md:text-2xl font-bold text-purple-900 mb-2">操作建議提醒</h4>
+                <p class="text-sm md:text-lg text-purple-800 leading-relaxed font-medium">
+                    數位櫃臺系統提供民眾申請項目眾多，雖已提供行動自然人登入，但因每項申請需填寫項目較為複雜，為確保申請人輸入資料之正確性，
+                    <span class="font-bold underline decoration-purple-400 decoration-2 underline-offset-4">
+                        現行建議使用桌上型電腦操作
+                    </span>，
+                    暫不開放行動裝置直接辦理申請。造成您的不便，敬請見諒。
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- 服務清單 -->
     <section id="services" class="max-w-6xl mx-auto px-4 mb-20">
-        <div class="grid lg:grid-cols-2 gap-8 md:gap-10">
-            <!-- 全程網路申請 (綠色調) -->
-            <div class="border p-6 md:p-8 rounded-[2rem] md:rounded-[3rem] shadow-sm bg-white hover:shadow-xl transition-all flex flex-col relative overflow-hidden group">
-                <div class="absolute top-4 right-4 md:top-6 md:right-8 bg-emerald-50 text-emerald-600 px-3 py-1 md:px-4 md:py-1.5 rounded-full text-xs md:text-sm font-bold border border-emerald-100">免臨櫃項目</div>
-                <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl md:rounded-3xl bg-emerald-50 text-emerald-700 border border-emerald-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+        <div class="grid lg:grid-cols-2 gap-6 md:gap-10">
+            <!-- 全程網路申請 -->
+            <div class="border border-slate-100 p-6 md:p-8 rounded-[2rem] md:rounded-[3rem] shadow-sm bg-white hover:shadow-xl transition-all flex flex-col relative overflow-hidden group">
+                <div class="absolute top-4 right-4 md:top-6 md:right-8 bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full text-[10px] md:text-sm font-bold border border-emerald-100">免臨櫃項目</div>
+                <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl md:rounded-3xl bg-emerald-50 text-emerald-700 border border-emerald-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg>
                 </div>
-                <h3 class="text-2xl md:text-3xl font-bold mb-2 text-slate-800">全程網路申請</h3>
-                <p class="text-emerald-600 font-bold mb-6 text-base md:text-lg">免去往返，在家即可辦結</p>
+                <h3 class="text-xl md:text-3xl font-bold mb-1 text-slate-800">全程網路申請</h3>
+                <p class="text-emerald-600 font-bold mb-6 text-sm md:text-lg">免去往返，在家即可辦結</p>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-                    <div class="bg-emerald-50/30 p-4 rounded-2xl border border-emerald-100 flex items-start gap-3">
-                        <div class="text-emerald-600 font-bold">01</div>
-                        <div><h4 class="font-bold text-slate-800">住址變更</h4><p class="text-slate-500 text-xs">同步身分證住址</p></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="bg-emerald-50/30 p-3 md:p-4 rounded-xl md:rounded-2xl border border-emerald-50 flex items-start gap-3">
+                        <div class="text-emerald-600 font-bold text-sm md:text-base">01</div>
+                        <div><h4 class="font-bold text-slate-800 text-sm md:text-base">住址變更</h4><p class="text-slate-500 text-[10px] md:text-xs">同步身分證住址</p></div>
                     </div>
-                    <div class="bg-emerald-50/30 p-4 rounded-2xl border border-emerald-100 flex items-start gap-3">
-                        <div class="text-emerald-600 font-bold">02</div>
-                        <div><h4 class="font-bold text-slate-800">更名登記</h4><p class="text-slate-500 text-xs">戶籍更名同步</p></div>
+                    <div class="bg-emerald-50/30 p-3 md:p-4 rounded-xl md:rounded-2xl border border-emerald-50 flex items-start gap-3">
+                        <div class="text-emerald-600 font-bold text-sm md:text-base">02</div>
+                        <div><h4 class="font-bold text-slate-800 text-sm md:text-base">更名登記</h4><p class="text-slate-500 text-[10px] md:text-xs">戶籍更名同步</p></div>
                     </div>
-                    <div class="bg-emerald-50/30 p-4 rounded-2xl border border-emerald-100 flex items-start gap-3">
-                        <div class="text-emerald-600 font-bold">03</div>
-                        <div><h4 class="font-bold text-slate-800">書狀換給</h4><p class="text-slate-500 text-xs">權狀損壞換發</p></div>
+                    <div class="bg-emerald-50/30 p-3 md:p-4 rounded-xl md:rounded-2xl border border-emerald-50 flex items-start gap-3">
+                        <div class="text-emerald-600 font-bold text-sm md:text-base">03</div>
+                        <div><h4 class="font-bold text-slate-800 text-sm md:text-base">書狀換給</h4><p class="text-slate-500 text-[10px] md:text-xs">權狀損壞換發</p></div>
                     </div>
-                    <div class="bg-emerald-50/30 p-4 rounded-2xl border border-emerald-100 flex items-start gap-3">
-                        <div class="text-emerald-600 font-bold">04</div>
-                        <div><h4 class="font-bold text-slate-800">門牌整編</h4><p class="text-slate-500 text-xs">產權住址配合調整</p></div>
+                    <div class="bg-emerald-50/30 p-3 md:p-4 rounded-xl md:rounded-2xl border border-emerald-50 flex items-start gap-3">
+                        <div class="text-emerald-600 font-bold text-sm md:text-base">04</div>
+                        <div><h4 class="font-bold text-slate-800 text-sm md:text-base">門牌整編</h4><p class="text-slate-500 text-[10px] md:text-xs">產權住址配合調整</p></div>
                     </div>
-                    <div class="bg-emerald-50/30 p-4 rounded-2xl border border-emerald-100 flex items-start gap-3">
-                        <div class="text-emerald-600 font-bold">05</div>
-                        <div><h4 class="font-bold text-slate-800">出生日期更正</h4><p class="text-slate-500 text-xs">基本資料誤繕修正</p></div>
+                    <div class="bg-emerald-50/30 p-3 md:p-4 rounded-xl md:rounded-2xl border border-emerald-50 flex items-start gap-3">
+                        <div class="text-emerald-600 font-bold text-sm md:text-base">05</div>
+                        <div><h4 class="font-bold text-slate-800 text-sm md:text-base">出生日期更正</h4><p class="text-slate-500 text-[10px] md:text-xs">基本資料誤繕修正</p></div>
                     </div>
-                    <div class="bg-emerald-50/30 p-4 rounded-2xl border border-emerald-100 flex items-start gap-3">
-                        <div class="text-emerald-600 font-bold">06</div>
-                        <div><h4 class="font-bold text-slate-800">身分證號更正</h4><p class="text-slate-500 text-xs">統號誤繕修正</p></div>
-                    </div>
-                    <div class="bg-emerald-50/30 p-4 rounded-2xl border border-emerald-100 flex items-start gap-3">
-                        <div class="text-emerald-600 font-bold">07</div>
-                        <div><h4 class="font-bold text-slate-800">建物基地號勘誤</h4><p class="text-slate-500 text-xs">基地坐標編號勘誤</p></div>
-                    </div>
-                    <div class="bg-emerald-50/30 p-4 rounded-2xl border border-emerald-100 flex items-start gap-3">
-                        <div class="text-emerald-600 font-bold">08</div>
-                        <div><h4 class="font-bold text-slate-800">管理者更名</h4><p class="text-slate-500 text-xs">法人或機構代號更正</p></div>
-                    </div>
-                    <div class="bg-emerald-50/30 p-4 rounded-2xl border border-emerald-100 flex items-start gap-3">
-                        <div class="text-emerald-600 font-bold">09</div>
-                        <div><h4 class="font-bold text-slate-800">地目變更</h4><p class="text-slate-500 text-xs">依地政機關標準變更</p></div>
-                    </div>
-                    <div class="bg-emerald-50/30 p-4 rounded-2xl border border-emerald-100 flex items-start gap-3">
-                        <div class="text-emerald-600 font-bold">10</div>
-                        <div><h4 class="font-bold text-slate-800">經界調整勘誤</h4><p class="text-slate-500 text-xs">界址勘誤類申請</p></div>
+                    <div class="bg-emerald-50/30 p-3 md:p-4 rounded-xl md:rounded-2xl border border-emerald-50 flex items-start gap-3">
+                        <div class="text-emerald-600 font-bold text-sm md:text-base">06</div>
+                        <div><h4 class="font-bold text-slate-800 text-sm md:text-base">身分證號更正</h4><p class="text-slate-500 text-[10px] md:text-xs">統號誤繕修正</p></div>
                     </div>
                 </div>
+                <p class="mt-4 text-[10px] text-slate-400 text-center italic">... 更多簡易案件請至櫃台查詢</p>
             </div>
 
-            <!-- 非全程申請 (橘色調) -->
-            <div class="border p-6 md:p-8 rounded-[2rem] md:rounded-[3rem] shadow-sm bg-white hover:shadow-xl transition-all flex flex-col relative overflow-hidden group">
-                <div class="absolute top-4 right-4 md:top-6 md:right-8 bg-orange-50 text-orange-600 px-3 py-1 md:px-4 md:py-1.5 rounded-full text-xs md:text-sm font-bold border border-orange-100">高效預約項目</div>
-                <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl md:rounded-3xl bg-orange-50 text-orange-700 border border-orange-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                        <polyline points="14 2 14 8 20 8"/>
-                        <circle cx="12" cy="14" r="3"/>
-                        <path d="M12 12v2h2"/>
-                    </svg>
+            <!-- 非全程申請 -->
+            <div class="border border-slate-100 p-6 md:p-8 rounded-[2rem] md:rounded-[3rem] shadow-sm bg-white hover:shadow-xl transition-all flex flex-col relative overflow-hidden group">
+                <div class="absolute top-4 right-4 md:top-6 md:right-8 bg-orange-50 text-orange-600 px-3 py-1 rounded-full text-[10px] md:text-sm font-bold border border-orange-100">高效預約項目</div>
+                <div class="w-12 h-12 md:w-16 md:h-16 rounded-2xl md:rounded-3xl bg-orange-50 text-orange-700 border border-orange-100 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><circle cx="12" cy="14" r="3"/><path d="M12 12v2h2"/></svg>
                 </div>
-                <h3 class="text-2xl md:text-3xl font-bold mb-2 text-slate-800">非全程申請</h3>
-                <p class="text-orange-600 font-bold mb-6 text-base md:text-lg">線上先行核對，現場核對即辦</p>
+                <h3 class="text-xl md:text-3xl font-bold mb-1 text-slate-800">非全程申請</h3>
+                <p class="text-orange-600 font-bold mb-6 text-sm md:text-lg">線上先行核對，現場核對即辦</p>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-                    <div class="bg-orange-50/30 p-4 rounded-2xl border border-orange-100 flex items-start gap-3">
-                        <div class="text-orange-600 font-bold">01</div>
-                        <div><h4 class="font-bold text-slate-800">買賣移轉登記</h4><p class="text-slate-500 text-xs">不動產所有權交易</p></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="bg-orange-50/30 p-3 md:p-4 rounded-xl md:rounded-2xl border border-orange-50 flex items-start gap-3">
+                        <div class="text-orange-600 font-bold text-sm md:text-base">01</div>
+                        <div><h4 class="font-bold text-slate-800 text-sm md:text-base">買賣移轉登記</h4><p class="text-slate-500 text-[10px] md:text-xs">不動產所有權交易</p></div>
                     </div>
-                    <div class="bg-orange-50/30 p-4 rounded-2xl border border-orange-100 flex items-start gap-3">
-                        <div class="text-orange-600 font-bold">02</div>
-                        <div><h4 class="font-bold text-slate-800">贈與登記</h4><p class="text-slate-500 text-xs">產權無償移轉手續</p></div>
+                    <div class="bg-orange-50/30 p-3 md:p-4 rounded-xl md:rounded-2xl border border-orange-50 flex items-start gap-3">
+                        <div class="text-orange-600 font-bold text-sm md:text-base">02</div>
+                        <div><h4 class="font-bold text-slate-800 text-sm md:text-base">贈與登記</h4><p class="text-slate-500 text-[10px] md:text-xs">產權無償移轉手續</p></div>
                     </div>
-                    <div class="bg-orange-50/30 p-4 rounded-2xl border border-orange-100 flex items-start gap-3">
-                        <div class="text-orange-600 font-bold">03</div>
-                        <div><h4 class="font-bold text-slate-800">繼承登記</h4><p class="text-slate-500 text-xs">遺產移轉繼承手續</p></div>
+                    <div class="bg-orange-50/30 p-3 md:p-4 rounded-xl md:rounded-2xl border border-orange-50 flex items-start gap-3">
+                        <div class="text-orange-600 font-bold text-sm md:text-base">03</div>
+                        <div><h4 class="font-bold text-slate-800 text-sm md:text-base">繼承登記</h4><p class="text-slate-500 text-[10px] md:text-xs">遺產移轉繼承手續</p></div>
                     </div>
-                    <div class="bg-orange-50/30 p-4 rounded-2xl border border-orange-100 flex items-start gap-3">
-                        <div class="text-orange-600 font-bold">04</div>
-                        <div><h4 class="font-bold text-slate-800">抵押權設定</h4><p class="text-slate-500 text-xs">向金融機構貸款設定</p></div>
+                    <div class="bg-orange-50/30 p-3 md:p-4 rounded-xl md:rounded-2xl border border-orange-50 flex items-start gap-3">
+                        <div class="text-orange-600 font-bold text-sm md:text-base">04</div>
+                        <div><h4 class="font-bold text-slate-800 text-sm md:text-base">抵押權設定</h4><p class="text-slate-500 text-[10px] md:text-xs">向金融機構貸款設定</p></div>
                     </div>
-                    <div class="bg-orange-50/30 p-4 rounded-2xl border border-orange-100 flex items-start gap-3">
-                        <div class="text-orange-600 font-bold">05</div>
-                        <div><h4 class="font-bold text-slate-800">抵押權塗銷</h4><p class="text-slate-500 text-xs">債務清償權利消滅</p></div>
+                    <div class="bg-orange-50/30 p-3 md:p-4 rounded-xl md:rounded-2xl border border-orange-50 flex items-start gap-3">
+                        <div class="text-orange-600 font-bold text-sm md:text-base">05</div>
+                        <div><h4 class="font-bold text-slate-800 text-sm md:text-base">抵押權塗銷</h4><p class="text-slate-500 text-[10px] md:text-xs">債務清償權利消滅</p></div>
                     </div>
-                    <div class="bg-orange-50/30 p-4 rounded-2xl border border-orange-100 flex items-start gap-3">
-                        <div class="text-orange-600 font-bold">06</div>
-                        <div><h4 class="font-bold text-slate-800">交換登記</h4><p class="text-slate-500 text-xs">標的物相互交換</p></div>
-                    </div>
-                    <div class="bg-orange-50/30 p-4 rounded-2xl border border-orange-100 flex items-start gap-3">
-                        <div class="text-orange-600 font-bold">07</div>
-                        <div><h4 class="font-bold text-slate-800">共有物分割</h4><p class="text-slate-500 text-xs">持分土地建物分割</p></div>
-                    </div>
-                    <div class="bg-orange-50/30 p-4 rounded-2xl border border-orange-100 flex items-start gap-3">
-                        <div class="text-orange-600 font-bold">08</div>
-                        <div><h4 class="font-bold text-slate-800">預告登記</h4><p class="text-slate-500 text-xs">保全債權之產權限制</p></div>
-                    </div>
-                    <div class="bg-orange-50/30 p-4 rounded-2xl border border-orange-100 flex items-start gap-3">
-                        <div class="text-orange-600 font-bold">09</div>
-                        <div><h4 class="font-bold text-slate-800">信託登記</h4><p class="text-slate-500 text-xs">不動產信託與塗銷</p></div>
-                    </div>
-                    <div class="bg-orange-50/30 p-4 rounded-2xl border border-orange-100 flex items-start gap-3">
-                        <div class="text-orange-600 font-bold">10</div>
-                        <div><h4 class="font-bold text-slate-800">調處登記</h4><p class="text-slate-500 text-xs">依委員會調處結果辦理</p></div>
+                    <div class="bg-orange-50/30 p-3 md:p-4 rounded-xl md:rounded-2xl border border-orange-50 flex items-start gap-3">
+                        <div class="text-orange-600 font-bold text-sm md:text-base">06</div>
+                        <div><h4 class="font-bold text-slate-800 text-sm md:text-base">信託登記</h4><p class="text-slate-500 text-[10px] md:text-xs">不動產信託與塗銷</p></div>
                     </div>
                 </div>
+                <p class="mt-4 text-[10px] text-slate-400 text-center italic">線上送件可省去現場填單與初核時間</p>
             </div>
         </div>
     </section>
@@ -248,24 +230,24 @@
     <!-- 流程導引 -->
     <section id="comparison" class="py-16 md:py-24 px-4 bg-sky-900 text-white relative overflow-hidden">
         <div class="max-w-5xl mx-auto text-center relative z-10">
-            <h2 class="text-2xl md:text-4xl font-black mb-4 px-4">我應該選擇哪一種方式？</h2>
-            <p class="text-sky-200 text-base md:text-lg mb-12 md:mb-16 italic font-medium px-4">根據您的需求與業務類型，選擇最適合的管道。</p>
+            <h2 class="text-xl md:text-4xl font-black mb-4 px-4">我應該選擇哪一種方式？</h2>
+            <p class="text-sky-200 text-xs md:text-lg mb-10 md:mb-16 italic font-medium px-4">根據您的需求與業務類型，選擇最適合的管道。</p>
 
             <div class="grid md:grid-cols-2 gap-6 md:gap-8 text-left max-w-4xl mx-auto">
-                <div class="p-8 md:p-10 bg-white/10 backdrop-blur-sm rounded-[2rem] md:rounded-[3rem] border border-white/20 hover:bg-white/20 transition-colors">
-                    <h3 class="text-2xl md:text-3xl font-bold italic underline decoration-emerald-400 mb-6 text-emerald-300">全程網辦</h3>
-                    <ul class="space-y-4 text-base md:text-lg font-medium text-slate-100">
-                        <li class="flex gap-3">✓ 適合簡易、無財產爭議之申請。</li>
-                        <li class="flex gap-3">✓ 電腦 + 讀卡機 或 手機身分識別。</li>
-                        <li class="flex gap-3">✓ 免出門，審查完畢直接生效。</li>
+                <div class="p-6 md:p-10 bg-white/10 backdrop-blur-sm rounded-2xl md:rounded-[3rem] border border-white/20 hover:bg-white/20 transition-colors">
+                    <h3 class="text-xl md:text-3xl font-bold italic underline decoration-emerald-400 mb-6 text-emerald-300 underline-offset-8">全程網辦</h3>
+                    <ul class="space-y-4 text-sm md:text-lg font-medium text-slate-100">
+                        <li class="flex gap-3"><span class="text-emerald-400">✓</span> 適合簡易、無財產爭議之申請。</li>
+                        <li class="flex gap-3"><span class="text-emerald-400">✓</span> 電腦 + 讀卡機 或 手機行動自然人。</li>
+                        <li class="flex gap-3"><span class="text-emerald-400">✓</span> 免出門，審查完畢直接生效。</li>
                     </ul>
                 </div>
-                <div class="p-8 md:p-10 bg-white/10 backdrop-blur-sm rounded-[2rem] md:rounded-[3rem] border border-white/20 hover:bg-white/20 transition-colors">
-                    <h3 class="text-2xl md:text-3xl font-bold italic underline decoration-orange-400 mb-6 text-orange-300">非全程網辦</h3>
-                    <ul class="space-y-4 text-base md:text-lg font-medium text-slate-100">
-                        <li class="flex gap-3">✓ 適合買賣、贈與等重大財產異動。</li>
-                        <li class="flex gap-3">✓ 線上上傳附件，地政事務所預審。</li>
-                        <li class="flex gap-3">✓ 僅需臨櫃核對身分，大幅縮減等待期。</li>
+                <div class="p-6 md:p-10 bg-white/10 backdrop-blur-sm rounded-2xl md:rounded-[3rem] border border-white/20 hover:bg-white/20 transition-colors">
+                    <h3 class="text-xl md:text-3xl font-bold italic underline decoration-orange-400 mb-6 text-orange-300 underline-offset-8">非全程網辦</h3>
+                    <ul class="space-y-4 text-sm md:text-lg font-medium text-slate-100">
+                        <li class="flex gap-3"><span class="text-orange-400">✓</span> 適合買賣、贈與等重大財產異動。</li>
+                        <li class="flex gap-3"><span class="text-orange-400">✓</span> 線上上傳附件，地政事務所預審。</li>
+                        <li class="flex gap-3"><span class="text-orange-400">✓</span> 僅需臨櫃核對，大幅縮減等待期。</li>
                     </ul>
                 </div>
             </div>
@@ -275,86 +257,36 @@
     <!-- 常見問題 (QA) -->
     <section id="qa" class="py-16 md:py-24 bg-emerald-50/50 px-4">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-2xl md:text-4xl font-black text-slate-900 mb-10 md:mb-12 text-center">常見問題</h2>
-            <div class="space-y-4">
+            <h2 class="text-xl md:text-4xl font-black text-slate-900 mb-8 md:mb-12 text-center">常見問題</h2>
+            <div class="space-y-3 md:space-y-4">
                 <!-- Q1 -->
-                <div class="faq-item bg-white rounded-2xl shadow-sm border border-emerald-100 overflow-hidden">
-                    <button class="faq-btn w-full px-6 py-5 md:px-8 md:py-6 text-left flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
-                        <span class="text-lg md:text-xl font-bold text-slate-700 pr-4">如何使用行動自然人憑證登入？</span>
-                        <svg class="chevron-icon shrink-0 transition-transform duration-300 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                <div class="faq-item bg-white rounded-xl md:rounded-2xl shadow-sm border border-emerald-100 overflow-hidden">
+                    <button class="faq-btn w-full px-5 py-4 md:px-8 md:py-6 text-left flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
+                        <span class="text-base md:text-xl font-bold text-slate-700 pr-4">如何使用行動自然人憑證登入？</span>
+                        <svg class="chevron-icon shrink-0 transition-transform duration-300 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <div class="px-6 pb-6 pt-2 md:px-8 md:pb-8 text-base md:text-lg text-slate-600 leading-relaxed">您只需在手機下載「行動自然人憑證」App 並完成註冊，登入數位櫃臺時選擇行動身分識別，再以手機掃描 QR Code 進行生物辨識即可。</div>
+                        <div class="px-5 pb-5 pt-1 md:px-8 md:pb-8 text-sm md:text-lg text-slate-600 leading-relaxed font-medium">您只需在手機下載「行動自然人憑證」App 並完成註冊，登入數位櫃臺時選擇行動身分識別，再以手機掃描 QR Code 進行生物辨識即可。</div>
                     </div>
                 </div>
                 <!-- Q2 -->
-                <div class="faq-item bg-white rounded-2xl shadow-sm border border-emerald-100 overflow-hidden">
-                    <button class="faq-btn w-full px-6 py-5 md:px-8 md:py-6 text-left flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
-                        <span class="text-lg md:text-xl font-bold text-slate-700 pr-4">非全程申請一定要去地政事務所嗎？</span>
-                        <svg class="chevron-icon shrink-0 transition-transform duration-300 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                <div class="faq-item bg-white rounded-xl md:rounded-2xl shadow-sm border border-emerald-100 overflow-hidden">
+                    <button class="faq-btn w-full px-5 py-4 md:px-8 md:py-6 text-left flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
+                        <span class="text-base md:text-xl font-bold text-slate-700 pr-4">非全程申請一定要去地政事務所嗎？</span>
+                        <svg class="chevron-icon shrink-0 transition-transform duration-300 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <div class="px-6 pb-6 pt-2 md:px-8 md:pb-8 text-base md:text-lg text-slate-600 leading-relaxed">是的。因為涉及重大產權移轉（如買賣、贈與），法律規定必須由人員當面核對申請人身分與權利書狀正本。</div>
+                        <div class="px-5 pb-5 pt-1 md:px-8 md:pb-8 text-sm md:text-lg text-slate-600 leading-relaxed font-medium">是的。因為涉及重大產權移轉（如買賣、贈與），法律規定必須由人員當面核對申請人身分與權利書狀正本。但線上預審可縮短臨櫃處理時間。</div>
                     </div>
                 </div>
                 <!-- Q3 -->
-                <div class="faq-item bg-white rounded-2xl shadow-sm border border-emerald-100 overflow-hidden">
-                    <button class="faq-btn w-full px-6 py-5 md:px-8 md:py-6 text-left flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
-                        <span class="text-lg md:text-xl font-bold text-slate-700 pr-4">沒有讀卡機怎麼辦？</span>
-                        <svg class="chevron-icon shrink-0 transition-transform duration-300 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                <div class="faq-item bg-white rounded-xl md:rounded-2xl shadow-sm border border-emerald-100 overflow-hidden">
+                    <button class="faq-btn w-full px-5 py-4 md:px-8 md:py-6 text-left flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
+                        <span class="text-base md:text-xl font-bold text-slate-700 pr-4">電子簽章的效力等同印鑑嗎？</span>
+                        <svg class="chevron-icon shrink-0 transition-transform duration-300 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <div class="px-6 pb-6 pt-2 md:px-8 md:pb-8 text-base md:text-lg text-slate-600 leading-relaxed">您可以透過手機下載「行動自然人憑證」並完成綁定。之後在電腦登入時只需透過手機掃碼與指紋/面部辨識即可，完全不需要讀卡機。</div>
-                    </div>
-                </div>
-                <!-- Q4 -->
-                <div class="faq-item bg-white rounded-2xl shadow-sm border border-emerald-100 overflow-hidden">
-                    <button class="faq-btn w-full px-6 py-5 md:px-8 md:py-6 text-left flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
-                        <span class="text-lg md:text-xl font-bold text-slate-700 pr-4">可以在系統上直接繳納規費嗎？</span>
-                        <svg class="chevron-icon shrink-0 transition-transform duration-300 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="px-6 pb-6 pt-2 md:px-8 md:pb-8 text-base md:text-lg text-slate-600 leading-relaxed">可以。數位櫃臺支援「線上繳費」功能，您可以使用網路信用卡或實體 ATM 轉帳支付地政規費，不需親自跑銀行或事務所。</div>
-                    </div>
-                </div>
-                <!-- Q5 -->
-                <div class="faq-item bg-white rounded-2xl shadow-sm border border-emerald-100 overflow-hidden">
-                    <button class="faq-btn w-full px-6 py-5 md:px-8 md:py-6 text-left flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
-                        <span class="text-lg md:text-xl font-bold text-slate-700 pr-4">我可以請專業人士（如地政士）代辦嗎？</span>
-                        <svg class="chevron-icon shrink-0 transition-transform duration-300 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="px-6 pb-6 pt-2 md:px-8 md:pb-8 text-base md:text-lg text-slate-600 leading-relaxed">可以。數位櫃臺設有「地政士代理」模式。地政士線上送件後，民眾只需在系統端進行「線上電子簽章」確認申請內容即可。</div>
-                    </div>
-                </div>
-                <!-- Q6 -->
-                <div class="faq-item bg-white rounded-2xl shadow-sm border border-emerald-100 overflow-hidden">
-                    <button class="faq-btn w-full px-6 py-5 md:px-8 md:py-6 text-left flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
-                        <span class="text-lg md:text-xl font-bold text-slate-700 pr-4">線上申請有時間限制嗎？</span>
-                        <svg class="chevron-icon shrink-0 transition-transform duration-300 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="px-6 pb-6 pt-2 md:px-8 md:pb-8 text-base md:text-lg text-slate-600 leading-relaxed">數位櫃臺系統提供 24 小時收件服務。不過，事務所的審查作業仍會在正式辦公時間內進行，非辦公時間送出的案件會順延至下一個工作日。</div>
-                    </div>
-                </div>
-                <!-- Q7 -->
-                <div class="faq-item bg-white rounded-2xl shadow-sm border border-emerald-100 overflow-hidden">
-                    <button class="faq-btn w-full px-6 py-5 md:px-8 md:py-6 text-left flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
-                        <span class="text-lg md:text-xl font-bold text-slate-700 pr-4">附件（如權狀影本）該如何提供？</span>
-                        <svg class="chevron-icon shrink-0 transition-transform duration-300 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="px-6 pb-6 pt-2 md:px-8 md:pb-8 text-base md:text-lg text-slate-600 leading-relaxed">您可以將證明文件掃描成 PDF 或 JPG 檔後直接上傳系統。若是非全程網辦案件，上傳後可加速預審速度，正本則需於臨櫃時提供查驗。</div>
-                    </div>
-                </div>
-                <!-- Q8 -->
-                <div class="faq-item bg-white rounded-2xl shadow-sm border border-emerald-100 overflow-hidden">
-                    <button class="faq-btn w-full px-6 py-5 md:px-8 md:py-6 text-left flex items-center justify-between hover:bg-emerald-50/50 transition-colors">
-                        <span class="text-lg md:text-xl font-bold text-slate-700 pr-4">電子簽章的效力等同印鑑嗎？</span>
-                        <svg class="chevron-icon shrink-0 transition-transform duration-300 text-emerald-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <div class="px-6 pb-6 pt-2 md:px-8 md:pb-8 text-base md:text-lg text-slate-600 leading-relaxed">是的。依照《電子簽章法》，使用自然人憑證進行的線上簽章與傳統紙本蓋印具有同等法律效力，且更能防範偽造風險。</div>
+                        <div class="px-5 pb-5 pt-1 md:px-8 md:pb-8 text-sm md:text-lg text-slate-600 leading-relaxed font-medium">是的。依照《電子簽章法》，使用自然人憑證進行的線上簽章與傳統紙本蓋印具有同等法律效力，且更能防範偽造風險。</div>
                     </div>
                 </div>
             </div>
@@ -362,34 +294,35 @@
     </section>
 
     <!-- 服務電話區塊 -->
-    <section class="py-12 md:py-16 px-4 bg-white">
+    <section class="py-12 md:py-20 px-4 bg-white">
         <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 md:gap-8">
-            <div class="bg-emerald-600 rounded-[2rem] md:rounded-[2.5rem] p-8 text-white shadow-lg flex flex-col items-center text-center ring-4 ring-emerald-50">
-                <div class="w-14 h-14 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="12" x="3" y="2" rx="2" ry="2"/><line x1="2" y1="20" x2="22" y2="20"/><line x1="7" y1="20" x2="7" y2="14"/><line x1="17" y1="20" x2="17" y2="14"/><path d="M2 14h20"/></svg>
+            <div class="bg-emerald-600 rounded-3xl md:rounded-[2.5rem] p-6 md:p-8 text-white shadow-lg flex flex-col items-center text-center">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="12" x="3" y="2" rx="2" ry="2"/><line x1="2" y1="20" x2="22" y2="20"/><line x1="7" y1="20" x2="7" y2="14"/><line x1="17" y1="20" x2="17" y2="14"/><path d="M2 14h20"/></svg>
                 </div>
-                <h3 class="text-xl md:text-2xl font-bold mb-2">系統面諮詢</h3>
-                <p class="text-emerald-100 mb-6 text-sm md:text-base font-medium">關於登入操作、網路報件系統問題</p>
-                <div class="text-2xl md:text-3xl font-black mb-2">07-228-0789</div>
-                <p class="text-xs md:text-sm opacity-80">( 服務時間：週一至週五 08:30~18:00 )</p>
+                <h3 class="text-lg md:text-2xl font-bold mb-2">系統面諮詢</h3>
+                <p class="text-emerald-100 mb-6 text-xs md:text-base font-medium opacity-90">關於登入操作、網路報件系統問題</p>
+                <a href="tel:072280789" class="text-2xl md:text-3xl font-black mb-2 hover:underline decoration-emerald-200">07-228-0789</a>
+                <p class="text-[10px] md:text-sm opacity-80">( 服務時間：週一至週五 08:30~18:00 )</p>
             </div>
 
-            <div class="bg-sky-700 rounded-[2rem] md:rounded-[2.5rem] p-8 text-white shadow-lg flex flex-col items-center text-center ring-4 ring-sky-50">
-                <div class="w-14 h-14 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-4"/><path d="M12 8V2"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/></svg>
+            <div class="bg-sky-700 rounded-3xl md:rounded-[2.5rem] p-6 md:p-8 text-white shadow-lg flex flex-col items-center text-center">
+                <div class="w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-full flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-4"/><path d="M12 8V2"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/></svg>
                 </div>
-                <h3 class="text-xl md:text-2xl font-bold mb-2">法規面諮詢</h3>
-                <p class="text-sky-100 mb-6 text-sm md:text-base font-medium">關於登記流程、案件補正、法律效力</p>
-                <div class="text-2xl md:text-3xl font-black mb-2 text-nowrap">03-888-3171</div>
-                <p class="text-xs md:text-sm opacity-80 mb-1">( 花蓮縣玉里地政事務所 服務電話 )</p>
-                <p class="text-xs md:text-sm opacity-80">( 服務時間：週一至週五 08:00~17:30 )</p>
+                <h3 class="text-lg md:text-2xl font-bold mb-2">法規面諮詢</h3>
+                <p class="text-sky-100 mb-6 text-xs md:text-base font-medium opacity-90">關於登記流程、案件補正、法律效力</p>
+                <a href="tel:038883171" class="text-2xl md:text-3xl font-black mb-2 hover:underline decoration-sky-200">03-888-3171</a>
+                <p class="text-[10px] md:text-sm opacity-80 mb-1">( 花蓮縣玉里地政事務所 服務電話 )</p>
+                <p class="text-[10px] md:text-sm opacity-80">( 服務時間：週一至週五 08:00~17:30 )</p>
             </div>
         </div>
     </section>
 
     <!-- 頁尾 -->
-    <footer class="bg-slate-900 text-slate-500 py-12 md:py-16 px-4 text-center">
-       <h3 class="text-xl md:text-2xl font-bold mb-2 text-slate-300">花蓮縣玉里地政事務所 製作宣導</h3>
+    <footer class="bg-slate-900 text-slate-500 py-12 md:py-20 px-4 text-center">
+        <h3 class="text-base md:text-2xl font-bold mb-4 text-slate-300">花蓮縣玉里地政事務所 製作宣導</h3>
+        <p class="text-xs md:text-sm max-w-xl mx-auto leading-relaxed">本網頁僅供政策推廣與宣導使用，各項申請案件之審核結果依地政機關最終核定為準。</p>
     </footer>
 
     <script>
@@ -404,6 +337,35 @@
             });
         });
 
+        // 監聽滾動以在手機版高亮導覽按鈕 (簡單實現)
+        window.addEventListener('scroll', () => {
+            const sections = ['services', 'comparison', 'qa'];
+            const navLinks = document.querySelectorAll('.mobile-nav a');
+            
+            let current = '';
+            sections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section && window.scrollY >= section.offsetTop - 150) {
+                    current = id;
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-sky-600', 'text-emerald-600', 'text-orange-600');
+                link.classList.add('text-slate-500');
+                if (link.getAttribute('href').includes(current) && current !== '') {
+                    link.classList.remove('text-slate-500');
+                    // 根據目標給予不同顏色
+                    if (current === 'services') link.classList.add('text-emerald-600');
+                    else if (current === 'comparison') link.classList.add('text-sky-600');
+                    else if (current === 'qa') link.classList.add('text-orange-600');
+                } else if (current === '' && link.getAttribute('href') === '#') {
+                    link.classList.remove('text-slate-500');
+                    link.classList.add('text-sky-600');
+                }
+            });
+        });
+
         // 防止快捷鍵複製 (Ctrl+C, Ctrl+U 等)
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'a' || e.key === 'i')) {
@@ -411,6 +373,9 @@
                 return false;
             }
         });
+        
+        // 防止右鍵
+        document.addEventListener('contextmenu', e => e.preventDefault());
     </script>
 </body>
 </html>
